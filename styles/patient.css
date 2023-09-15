@@ -1,0 +1,167 @@
+.box{
+    min-height: 100vh;
+    transition: .8s;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    /* z-index: 2; */
+}
+.popup{
+    
+    border-radius: 12px;
+    width: 500px; 
+    margin: 0 auto;
+    text-align: center;
+    padding: 18px;
+    background-color: #999;
+    
+}
+/* Head part of user icon */
+.circle .register-head{
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: 6px;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
+/* Body part of user icon */
+.circle .register-body{
+    display: inline-block;
+    width: 35px;
+    margin: 0 auto;
+    margin-top: 26px;
+    height: 25px;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
+.close{
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 0;
+    right: 0;
+    color: tomato;
+    font-size: 34px;
+}
+.close:hover{
+    background-color: red;
+    border-radius: 0 12px 0 0;
+    color: #fcfcfc;
+    cursor: pointer;
+}
+.registration-box{
+    margin-top: 43px; 
+}
+label{
+    display: block;
+    position: absolute;
+    font-size: 18px;
+    color: rgb(169, 171, 170);
+    margin-top: -62px;
+    padding-left: 18px;
+    text-align: left;
+    pointer-events: none;
+    transition: .4s;
+}
+input{
+    width: 95%;
+    height: 42px;
+    margin: 10px 1px 28px 1px;
+    padding: 9px;
+    font-size: 18px;
+    color: #555;
+    border: rgb(65, 118, 97) 1px solid;
+    outline: none;
+    border-radius: 5px;
+}
+input:focus~label,
+input:valid~label{
+    margin-top: -95px;
+    padding-left: 8px;
+    color: #026948;
+    font-weight: 500;
+}
+
+h1{
+    margin-top: 28px;
+    margin-bottom: 28px;
+    font-size: 21px;
+    font-weight: 300;
+}
+.circle{
+    position: absolute;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: -35px;
+    right: 0;
+    left: 0;
+    background-color: rgb(1, 170, 133);
+    border: 2px #fff solid;
+}
+
+
+.box .circle, .box span{
+    display: inline-block;
+    position: absolute;
+}
+.box span{
+    height: 2px;
+    background-color: rgb(1, 170, 133);
+}
+.body-text{
+    font-size: 17px;
+    line-height: 25px;
+}
+.circle .slant-right{
+     width: 29px;
+     top: 27px;
+     left: 16px;
+     transform: rotate(-45deg);
+     display: none;
+     animation: slant-animate 1s ease-in forwards;
+}
+
+/* Left side of the check mark sign */
+.circle .slant-left{
+    width: 16px;
+    top: 32px;
+    left: 8px;
+    transform: rotate(50deg);
+    display: none;
+    animation: slant-animate .8s ease-in forwards; 
+}
+#save,#edit{
+    display: none;
+}
+
+
+@keyframes slant-animate{
+    to{
+        background-color: #fff;
+    }
+}
+
+@media screen and ( max-width: 350px){
+.box{
+    width: 90%;
+}
+}
+@media screen and (max-width: 480px) {
+    
+    .popup {
+        width: 320px !important;
+        
+    }
+  }

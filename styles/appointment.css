@@ -1,0 +1,7 @@
+@media screen and (max-width: 480px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    
+  }

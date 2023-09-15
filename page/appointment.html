@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Appointment</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link rel="stylesheet" href="../styles/main.css">
+     <link rel="stylesheet" href="../styles/appointment.css">
+    </head>
+<body onload="loadIds()">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="dashbord.html">HMS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="dashbord.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./patient.html">Patient</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./doctor.html">Doctor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./appointment.html">Appointment</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./billing.html">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./inventory.html">Inventory</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+<div class="container mt-3">
+  <div class="row row-gap-3">
+    <div class="col">
+      <div class="form-group">
+        <select name="" id="patient-id" class="form-control">
+
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="name">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="age">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="gender">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="contact">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="medicalHistory">
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container mt-3">
+  <div class="row row-gap-3">
+    <div class="col ">
+      <div class="form-group">
+        <select name="" id="doctor-id" class="form-control">
+
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="doctorName">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="specialization">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="doctorContact">
+    </div>
+    <div class="col">
+      <input type="text" disabled class="form-control" id="availability">
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container mt-3">
+  <div class="row row-gap-3">
+    <div class="col">
+      <label style="position: static;margin-top: 1px;color:black;" for="date">Appointment date</label>
+      <input type="datetime-local" class="form-control" id="date">
+    </div>
+    <div class="col mt-4">
+      <input type="button" class="btn btn-primary" value="Booking"style="width: 100%;"onclick="booking()">
+    </div>
+  </div>
+</div>
+<hr>
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Patient</th>
+          <th scope="col">Doctor</th>
+          <th scope="col">Date</th>
+
+        </tr>
+      </thead>
+      <tbody id="table-body">
+      </tbody>
+    </table>
+  </div>
+  <div class="col-3">
+    <input type="button"  class="btn btn-primary"value="Report"onclick="printData()">
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+    <script src="../scripts/firebaseConfig.js"></script>
+    <script src="../scripts/appointment.js"></script>
+    <script src="../scripts/main.js"></script>
+</body>
+</html>
