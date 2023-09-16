@@ -15,7 +15,6 @@ const clearData=()=>{
     $('#doctorContact').val("")
     $('#availability').val("")
     isAvailable=undefined;
-    loadIds();
 }
 const loadPatientIds = () => {
     $('#patient-id').empty();
@@ -85,7 +84,7 @@ $('#doctor-id').on("change",function (){
 
 const booking=()=>{
 
-    if(isAvailable===true){
+    if(isAvailable==="true"){
         let obj={
             patients:{
                 patientId:$('#patient-id').val(), 
