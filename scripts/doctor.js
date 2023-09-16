@@ -7,6 +7,7 @@ const clearData=()=>{
     $('#name').val(""), 
     $('#specialization').val(""),
     $('#contact').val("")
+    $('#available').val("")
 }
 const openPopUpSave=()=>{
     clearData();
@@ -60,7 +61,7 @@ createDoctor=()=>{
         name:$('#name').val(), 
         specialization:$('#specialization').val(),
         contact:$('#contact').val(),
-        availability:true
+        availability:$('#available').val()
     };
     const database=firebase.firestore();
     database
@@ -91,7 +92,8 @@ const updateData=(id)=>{
                 const data = response.data();
                 $('#name').val(data.name), 
                 $('#specialization').val(data.specialization),
-                $('#contact').val(data.contact)
+                $('#contact').val(data.contact),
+                $('#available').val(data.availability),
                 openPopUpEdit();
             }
     })
@@ -105,7 +107,8 @@ const updateRecord=()=>{
             .update({
                 name:$('#name').val(), 
                 specialization:$('#specialization').val(),
-                contact:$('#contact').val()
+                contact:$('#contact').val(),
+                availability:$('#available').val()
             }).then(()=>{
             doctorId=undefined;
             closePopUp();

@@ -73,7 +73,7 @@ label{
     pointer-events: none;
     transition: .4s;
 }
-input{
+input,select{
     width: 95%;
     height: 42px;
     margin: 10px 1px 28px 1px;
@@ -85,7 +85,9 @@ input{
     border-radius: 5px;
 }
 input:focus~label,
-input:valid~label{
+input:valid~label,
+select:focus~label,
+select:valid~label{
     margin-top: -95px;
     padding-left: 8px;
     color: #026948;

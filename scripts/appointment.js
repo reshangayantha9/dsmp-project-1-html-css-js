@@ -78,13 +78,14 @@ $('#doctor-id').on("change",function (){
             $('#doctorContact').val(data.contact)
             $('#availability').val(data.availability)
             isAvailable=data.availability;
-
+            console.log(isAvailable);
         }
     })
 });
 
 const booking=()=>{
-    if(isAvailable){
+
+    if(isAvailable===true){
         let obj={
             patients:{
                 patientId:$('#patient-id').val(), 
@@ -115,7 +116,9 @@ const booking=()=>{
             }).catch((error)=>{
                  console.log(error);
             });
-        }
+    }else{
+        alert("Doctor not available")
+    }
 }
 const loadBooking=()=>{
     $('#table-body').empty();
