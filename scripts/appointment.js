@@ -168,6 +168,6 @@ const loadBooking=()=>{
         });
     });
 }
-const printData=(i)=>{
-    window.open('../page/report/appointmentReport.html');
+const printData=()=>{
+    window.open(`../page/report/appointmentReport.html?from=${$('#fromDate').val()}&to=${$('#toDate').val()}`);
 }
