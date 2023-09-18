@@ -46,9 +46,11 @@ $('#patient-id').on("change",function (){
         }
     })
 });
-const billing =()=>{
+$('#payment').on("change keydown paste input",function(){
     let balance=$('#payment').val()-$('#cost').val()
     $('#balance').val(balance)
+})
+const billing =()=>{
     let obj={
         patients:{
             patientId:$('#patient-id').val(), 

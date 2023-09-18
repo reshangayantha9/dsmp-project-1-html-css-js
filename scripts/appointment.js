@@ -104,24 +104,52 @@ const booking=()=>{
             date:$('#date').val()
         }
         const firestore = firebase.firestore();
-
         firestore
             .collection('booking')
-            .add(obj)
-            .then((response)=>{
-                toastr.success('Saved!', 'success!')
-                clearData();
-                loadBooking();
-            }).catch((error)=>{
-                 console.log(error);
+            .where('date', '==', obj.date)
+            .where('doctors.doctorId', '==', obj.doctors.doctorId)
+            .get()
+            .then((querySnapshot) => {
+                if (!querySnapshot.empty) {
+                    toastr.options.closeMethod = 'fadeOut';
+                    toastr.options.closeDuration = 300;
+                    toastr.options.closeEasing = 'swing';
+                    toastr.error('An appointment with the same date, time, and doctor already exists. Please choose another time or doctor.');
+                } else {         
+                    firestore
+                        .collection('booking')
+                        .add(obj)
+                        .then((response) => {
+                            toastr.options.closeMethod = 'fadeOut';
+                            toastr.options.closeDuration = 300;
+                            toastr.options.closeEasing = 'swing';
+                            toastr.success('Appointment created successfully.');
+                            loadIds();
+                        })
+                        .catch((error) => {
+                            toastr.options.closeMethod = 'fadeOut';
+                            toastr.options.closeDuration = 300;
+                            toastr.options.closeEasing = 'swing';
+                            toastr.error('Error creating appointment.');
+                        });
+                }
+            })
+            .catch((error) => {
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 300;
+                toastr.options.closeEasing = 'swing';
+                toastr.error('Error checking appointment conflict.');
             });
+    
     }else{
-        alert("Doctor not available")
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 300;
+                toastr.options.closeEasing = 'swing';
+                toastr.error('Doctor not available.');
     }
 }
 const loadBooking=()=>{
     $('#table-body').empty();
-
     const firestore = firebase.firestore();
     firestore
         .collection('booking')

@@ -33,6 +33,10 @@ input:valid~label{
 #balance{
     width: 250px !important;
 }
+h2{
+    margin: 40px 0;
+    text-align: center;
+}
 @media screen and (max-width: 480px) {
     .row{
         display: flex;

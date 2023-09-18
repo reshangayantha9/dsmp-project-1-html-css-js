@@ -1,113 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management System - Doctor</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-     <link rel="stylesheet" href="../styles/main.css">
-     <link rel="stylesheet" href="../styles/doctor.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Management System - Doctor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/doctor.css">
 </head>
+
 <body onload="loadDoctors()">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="dashbord.html">HMS</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="dashbord.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./patient.html">Patient</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="./doctor.html">Doctor</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="./appointment.html">Appointment</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./billing.html">Billing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./inventory.html">Inventory</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <section class="box">
-        <div class="popup">
-          <div class="close"onclick="closePopUp()">&times;</div>
-        <div class="circle">
-           <span class="register-head"></span>
-          <span class="register-body"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark bg-gradient ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="dashbord.html">HMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="dashbord.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./patient.html">Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./doctor.html">Doctor</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="./appointment.html">Appointment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./billing.html">Billing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./inventory.html">Inventory</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="box">
+    <div class="popup">
+      <div class="close" onclick="closePopUp()">&times;</div>
+      <div class="circle">
+        <span class="register-head"></span>
+        <span class="register-body"></span>
         <span class="slant-left"></span>
         <span class="slant-right"></span>
+      </div>
+     
+      <div class="registration-box">
+        <div>
+          <input type="text" id="name" required="required">
+          <label for="name">Name</label>
         </div>
+        <div>
+          <input type="text" id="specialization" required="required">
+          <label for="specialization">Specialization</label>
+        </div>
+        <div>
+          <input type="text" id="contact" required="required">
+          <label for="contact">Contact</label>
+        </div>
+        <div>
+          <select class="form-select" aria-label="Default select example" id="available"
+            style="width: 95%;margin-left: 10px;">
+            <option value="true">true</option>
+            <option value="false">false</option>
+          </select>
+          <label for="available">Availability</label>
+        </div>
+        <button id="save" class="btn btn-primary col-12 " onclick="createDoctor()">Submit</button>
+        <button id="edit" class="btn btn-success col-12 " onclick="updateRecord()">Edit</button>
 
-        <div class="registration-box">
-            <div>
-                <input type="text" id="name" required="required">
-                <label for="name">Name</label>
-             </div>
-             <div>
-              <input type="text" id="specialization" required="required">
-              <label for="specialization">Specialization</label>
-           </div>
-         <div>
-        <input type="text" id="contact" required="required">
-        <label for="contact">Contact</label>
-     </div>
-     <div>
-     <select class="form-select" aria-label="Default select example"id ="available" style="width: 95%;margin-left: 10px;">
-      <option value="true">true</option>
-      <option value="false">false</option>
-    </select>
-    <label for="available">Availability</label>
-  </div>
-        <button id="save"class="btn btn-primary col-12 "onclick="createDoctor()">Submit</button>
-        <button id="edit" class="btn btn-success col-12 "onclick="updateRecord()">Edit</button>
-    
+      </div>
+  </section>
+  <div class="container-fluid mt-2">
+    <h2>Doctors Management</h2>
+    <div class="row">
+      <div class="form-group">
+        <input type="button" id="btn-create" class="btn btn-primary col-5 btnOpen" value="Create Doctor"
+          onclick="openPopUpSave()">
+      </div>
     </div>
-    </section>
-    <div class="container-fluid mt-2">
-      <div class="row">
-        <div class="form-group">
-                <input type="button" id="btn-create"class="btn btn-primary col-5 btnOpen"value="Create Doctor"onclick="openPopUpSave()">   
-               </div>
-      </div>                                                                                                                                                                                                                 
-                                                                                                         
-      <hr>
-      <div class="table-responsive">
+
+    <hr>
+    <div class="table-responsive">
       <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Specialization</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Availability</th>
-              <th scope="col">Action</th>
-  
-            </tr>
-          </thead>
-          <tbody id="table-body">
-          </tbody>
-        </table>
-      </div>
-      </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
-    <script src="../scripts/firebaseConfig.js"></script>
-    <script src="../scripts/doctor.js"></script>
-    <script src="../scripts/main.js"></script>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Specialization</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Availability</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+  <script src="../scripts/firebaseConfig.js"></script>
+  <script src="../scripts/doctor.js"></script>
+  <script src="../scripts/main.js"></script>
 </body>
+
 </html>

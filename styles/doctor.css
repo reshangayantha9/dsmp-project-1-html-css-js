@@ -100,6 +100,10 @@ h1{
     font-size: 21px;
     font-weight: 300;
 }
+h2{
+    margin: 40px 0;
+    text-align: center;
+}
 .circle{
     position: absolute;
     margin: 0 auto;

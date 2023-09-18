@@ -1,0 +1,17 @@
+.outer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(183,214,225);
+}
+.inner{
+    width: 60%;
+}
+img{
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+    .inner{
+        width: 100%;
+    }
+  }

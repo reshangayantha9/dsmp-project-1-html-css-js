@@ -1,4 +1,5 @@
 const loadBooking=()=>{
+    
     $('#table-body').empty();
 
     const firestore = firebase.firestore();
